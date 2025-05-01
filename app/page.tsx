@@ -1,4 +1,4 @@
-import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs"
+import { SignInButton, SignOutButton, SignUpButton, SignedIn, SignedOut,} from "@clerk/nextjs"
 import { LearnMore } from "./components/learn-more"
 import screenshotDevices from "./images/user-button@2xrl.webp"
 import signIn from "./images/sign-in@2xrl.webp"
@@ -14,8 +14,10 @@ import { Footer } from "./components/footer"
 import { CARDS } from "./consts/cards"
 import { ClerkLogo } from "./components/clerk-logo"
 import { NextLogo } from "./components/next-logo"
+import { UserDetails } from "./components/user-details"
 
 export default function Home() {
+
   return (
     <>
       <main className="bg-[#FAFAFA] relative">
@@ -45,6 +47,7 @@ export default function Home() {
               A simple and powerful Next.js template featuring authentication
               and user management powered by Clerk.
             </p>
+           <UserDetails />
             <div className="relative flex gap-3">
               <SignedIn>
                 <Link
@@ -53,6 +56,11 @@ export default function Home() {
                 >
                   Dashboard
                 </Link>
+                <SignOutButton>
+                  <button className="px-4 py-2 rounded-full bg-red-500 text-white text-sm font-semibold">
+                    Sign out
+                  </button>
+                </SignOutButton>
               </SignedIn>
               <SignedOut>
                 <SignInButton>
@@ -60,6 +68,11 @@ export default function Home() {
                     Sign in
                   </button>
                 </SignInButton>
+                <SignUpButton>
+                  <button className="px-4 py-2 rounded-full bg-[#131316] text-white text-sm font-semibold">
+                    Sign up
+                  </button>
+                </SignUpButton>
               </SignedOut>
             </div>
           </div>
